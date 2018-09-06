@@ -1,0 +1,29 @@
+<div class="contents row">
+  <% if user_signed_in? && current_user.id ==  @whichresearcher.user_id %>
+    <p>現在自分がcheerされている状況</p>
+    <div class="cheers">   
+      <h4><cheer一覧＞</h4>
+      <% if @cheers %>
+        <% @cheers.each do |cheer| %>
+          <p>
+            <strong><%= link_to cheer.user.firstname, "/users/#{cheer.user_id}" %>：</strong>
+            <%= cheer.message %>
+            <%= cheer.money %><span>円</span>
+          </p>
+        <% end %>
+      <% end %>
+    </div>   
+  <% end %>
+  
+  
+  <p><%= @firstname %>さんがCheerしている人一覧</p>
+  <% @cheeringresearchers.each do |cheeringresearcher| %>
+  <!-- 一回のみ表示 -->
+    <div class="content_post" style="background-image: url(<%= cheeringresearcher.researcher.image %>);">
+      <span class="name"><%= cheeringresearcher.researcher.firstname %></span>
+    <%= link_to "#{cheeringresearcher.researcher.image}", "/researchers/#{cheeringresearcher.researcher.id}" ,   class: 'get' %>
+    </div>
+    
+  <% end %>
+
+</div>

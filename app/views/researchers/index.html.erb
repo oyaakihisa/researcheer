@@ -1,0 +1,11 @@
+<div class="contents row" >
+  <% @researchers.each do |researcher| %>
+    <div class="content_post" style="background-image: url(<%= researcher.image %>);">
+      <%= simple_format(researcher.field) %>
+      <span class="name"><%= researcher.firstname %></span>
+    <%= link_to "#{researcher.image}", "/researchers/#{researcher.id}" ,   class: 'get' %>
+    </div>
+  <% end %>
+  
+
+</div>

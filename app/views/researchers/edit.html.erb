@@ -1,0 +1,12 @@
+<div class="contents row">
+  <%= form_tag("/researchers/#{@researcher.id}", method: :patch ) do %>
+    <h3>
+      編集する
+    </h3>
+    <input type="text" name="image" placeholder="Image Url" autofocus="true">
+    <input type="text" name="belonging" placeholder="所属" >
+    <input type="text" name="field" placeholder="学問分野" >
+    <input type="text" name="fielddata" placeholder="詳細" >
+    <input type="submit" value="SENT">
+  <% end %>
+</div>

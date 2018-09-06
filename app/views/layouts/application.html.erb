@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Sample</title>
+    <!-- BootstrapのCSS読み込み -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- BootstrapのJS読み込み -->
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__bar row">
+        <h1 class="grid-6"><a href="/">Researcheer</a></h1>
+          <% if user_signed_in? %>
+          
+           <!-- if user=rsearcher -->
+            <div class="user_nav grid-6">
+              <span>ようこそ<%= current_user.familyname + current_user.firstname %>さん
+                <a href="/users/<%= current_user.id %>">マイページ</a>
+                <%= link_to "ログアト", destroy_user_session_path, method: :delete %>
+              </span>
+            </div>
+            
+          <% else %>
+            <div class="grid-6">
+              <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+              <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+            </div>
+          <% end %>
+    </div>
+  </header>
+
+    <%= yield %>
+
+    <footer>
+      <p>
+        Copyright Researcheer 2018.
+      </p>
+    </footer>
+  </body>
+</html>

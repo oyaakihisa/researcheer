@@ -1,0 +1,13 @@
+<div class="contents row">
+  <%= form_tag("/researchers/#{@researcher.id}/cheers", method: :post ) do %>
+    <h3>
+      <%= @researcher.firstname %>
+    </h3>
+    <p>
+      さんをcheerする
+    </p>
+    <input type="integer" name="money" placeholder="金額" autofocus="true">
+    <input type="text" name="message" placeholder="メッセージ" >
+    <input type="submit" value="SENT">
+  <% end %>
+</div>
